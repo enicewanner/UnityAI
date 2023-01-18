@@ -21,6 +21,7 @@ public class AutonomousAgent : Agent
 		{
 			movement.ApplyForce(Steering.Seek(this, gameObjects[0]) * data.seekWeight);
 			movement.ApplyForce(Steering.Flee(this, gameObjects[0]) * data.fleeWeight);
+		}
 
 			gameObjects = flockPerception.GetGameObjects();
 			if (gameObjects.Length > 0)
@@ -35,7 +36,6 @@ public class AutonomousAgent : Agent
 				movement.ApplyForce(Steering.Alignment(this, gameObjects) * data.alignmentWeight);
 			}
 
-		}
 
 		if (movement.acceleration.sqrMagnitude <= movement.maxForce * 0.1f)
 		{
